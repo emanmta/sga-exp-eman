@@ -1,0 +1,116 @@
+# Byte-compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+.venv/
+venv.bak/
+
+# IDEs and editors
+.idea/
+.vscode/
+.gitbook/
+.ruff_cache/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Test and coverage
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Pytest
+.cache/
+pytest_cache/
+.pytest_cache/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.envrc
+
+# Pyenv
+.python-version
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+.dmypy.json~
+
+# Miscellaneous
+*.DS_Store
+*.swp
+*~
+
+# Sphinx documentation
+docs/_build/
+
+# Ignore all files in the following directories
+*.git/
+*.github/
+
+# Cython debug symbols
+cython_debug/
+
+# Ignore data
+app/data/dbdata
+app/data
+central-memory-data
+
+# Ignore sample data
+data_*/
+temp/
+app/data/dbdata/generated_csv/*
+
+app/automation
+
+# Ignore testing files
+testing.ipynb
+temp.ipynb
+llama-test.ipynb
+setup_connection.ipynb
+orbit_setup.ipynb
+notes.rst
+experimentation/
+experimentations.ipynb
+orbit_setup.ipynb
+development
+*.ipynb
+
+# Ignore Cline
+.clineignore
+
+# Ignore Specific Script
+remote.sh
+buildkitd.toml
+
+# ignore temp
+temp.*
+
+.venv/
+__pycache__/
+uv.lock
