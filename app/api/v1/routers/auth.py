@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from typing import List
 from jose import jwt, JWTError
 from app.schemas.auth import LoginIn
 from app.server.dependencies import get_settings
@@ -57,3 +58,21 @@ def get_user_id_from_header(
         return payload.get("sub")
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
+
+
+class RoleChecker:
+    def __init__(self, allowed_roles: List[str]):
+        self.allowed_roles = allowed_roles
+
+    def __call__(self, creds: HTTPAuthorizationCredentials = Depends(bearer)):
+        token = creds.credentials
+        try:
+            payload = jwt.decode(
+                token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
+            )
+            role = payload.get("role")
+            if role not in self.allowed_roles:
+                raise HTTPException(status_code=403, detail="Operation not permitted")
+            return payload
+        except JWTError:
+            raise HTTPException(status_code=401, detail="Invalid token")
